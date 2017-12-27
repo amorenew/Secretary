@@ -1,0 +1,5 @@
+Most solutions propose webpack config changes, but this would require ejecting the application
+here without ejecting the app
+const electron = window.require('electron');
+const fs = electron.remote.require('fs');
+const ipcRenderer  = electron.ipcRenderer;
