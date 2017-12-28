@@ -1,14 +1,14 @@
 import platform from 'platform'
 
 export function isMobile() {
-    if (platform&&platform.name) {
+    if (platform.name) {
         console.log("sdfsdsd")
         console.log(platform.name)
-        return true
+        return false
     } else {
         console.log("sss")
         console.log("wrqqq")
-        return null
+        return true
     }
 }
 export function isReactNative() {

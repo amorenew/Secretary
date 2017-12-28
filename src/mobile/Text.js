@@ -1,5 +1,17 @@
 import React from 'react';
 import {isMobile} from "./Cross";
+// import platform from 'platform'
+//  function isMobile() {
+//     if (platform.name) {
+//         console.log("sdfsdsd")
+//         console.log(platform.name)
+//         return false
+//     } else {
+//         console.log("sss")
+//         console.log("wrqqq")
+//         return true
+//     }
+// }
 const Text = (props) => {
     const {
         type = 'regular',
@@ -18,8 +30,8 @@ const Text = (props) => {
     const backgroundColor = transparent
         ? 'transparent'
         : null
-
-    if (isMobile) {
+    // console.log(isMobile())
+    if (isMobile()) {
         var Text = require('react-native').Text;
         return (
             <Text
@@ -45,10 +57,7 @@ const Text = (props) => {
                     backgroundColor
                 },
                 style
-            ]}
-                numberOfLines={lines}>
-                {props.children}
-            </label>
+            ]}>{props.children}</label>
         );
     }
 }

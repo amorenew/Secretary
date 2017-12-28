@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Text from "./Text";
+import Text from "./mobile/Text";
 class App extends Component {
   render() {
     return (
