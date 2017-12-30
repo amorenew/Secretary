@@ -1,8 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import ReactNative from 'react-native'
+import App from './App'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+ReactNative.render(<App/>, document.getElementById('root'));
