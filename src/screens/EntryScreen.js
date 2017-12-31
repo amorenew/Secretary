@@ -6,7 +6,7 @@ import {
     StyleSheet,
     View, Text,TouchableOpacity
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+// import LinearGradientCross from './LinearGradientCross';
 
 class EntryScreen extends React.Component {
     constructor(props, context) {
@@ -34,14 +34,6 @@ class EntryScreen extends React.Component {
 
         return (
             <View style={styles.container}>
-  <TouchableOpacity style={{height:50}}>
-  <LinearGradient   start={{x: 0.0, y: 0.25}} end={{x: 0.5, y: 1.0}}
-  locations={[0,0.5,0.6]}
-  colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
-    <Text style={styles.buttonText}>Sign in with Facebook</Text>
-  </LinearGradient>
-</TouchableOpacity>
-
                 <TopLevelScreenComponent
                     passDispatchedAction={this.passDispatchedAction}
                     failDispatchedAction={this.failDispatchedAction}
@@ -55,9 +47,12 @@ class EntryScreen extends React.Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        position:'absolute',
+        height:'100%',
+        width:'100%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#F5FCFF',
+        backgroundColor: '#000',
         // backgroundImage: `linear-gradient(to bottom, ${"#f2323f"} 0%, ${"#f2ff3f"} 100%)`,
     }, linearGradient: {
         flex: 1,
