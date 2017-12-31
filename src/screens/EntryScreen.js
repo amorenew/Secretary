@@ -53,6 +53,23 @@ class EntryScreen extends React.Component {
                         Sign in with Facebook
                     </Text>
                 </LinearGradient>
+                <TouchableOpacity
+                    style={{
+                    backgroundColor: '#1A237E',
+                    borderBottomWidth: 5,
+                    borderBottomColor: '#304FFE',
+                    padding: 15,
+                    width: 200,
+                    borderTopLeftRadius: 20,
+                    borderTopRightRadius: 20
+                }}>
+                    <Text
+                        style={{
+                        color: 'white',
+                        textAlign: 'center',
+                        fontSize: 28
+                    }}>Learning</Text>
+                </TouchableOpacity>
                 <TopLevelScreenComponent
                     passDispatchedAction={this.passDispatchedAction}
                     failDispatchedAction={this.failDispatchedAction}

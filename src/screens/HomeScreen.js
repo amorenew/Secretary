@@ -1,5 +1,7 @@
 import React from 'react';
-import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import {StyleSheet, View, Text, TouchableOpacity,ScrollView} from 'react-native';
+// import Panel from './../components/Panel'
+import Collapsible from 'react-native-collapsible';
 
 class HomeScreen extends React.Component {
     constructor() {
@@ -13,13 +15,17 @@ class HomeScreen extends React.Component {
         return <View style={styles.container}>
             <TouchableOpacity
                 style={{
-                backgroundColor: '#1A237E',
+                backgroundColor: '#404A6A',
+                borderTopLeftRadius:25,
+                borderBottomRightRadius:25,
+                borderLeftWidth: 2,
+                borderColor: '#448AFF',
+                borderTopWidth: 5,
                 borderBottomWidth: 5,
-                borderBottomColor: '#304FFE',
+                borderRightWidth: 2,
                 padding: 15,
                 width: 200,
-                borderTopLeftRadius: 20,
-                borderTopRightRadius: 20
+                borderRadius:10,
             }}>
                 <Text
                     style={{
@@ -28,6 +34,7 @@ class HomeScreen extends React.Component {
                     fontSize: 28
                 }}>Learning</Text>
             </TouchableOpacity>
+
         </View>;
     }
 
@@ -43,7 +50,7 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#000',
+        backgroundColor: '#2C3451',
         // backgroundImage: `linear-gradient(to bottom, ${"#f2323f"} 0%, ${"#f2ff3f"}
         // 100%)`,
     }
