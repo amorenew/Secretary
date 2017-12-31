@@ -1,6 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
-import LinearGradient from 'react-native-web-linear-gradient'
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
 class HomeScreen extends React.Component {
     constructor() {
@@ -12,22 +11,23 @@ class HomeScreen extends React.Component {
 
     render() {
         return <View style={styles.container}>
-            <LinearGradient
-                start={{
-                x: 0.0,
-                y: 0.0
-            }}
-                end={{
-                x: 0.0,
-                y: 1.0
-            }}
-                locations={[0, 0.5, 0.9]}
-                colors={['#4c669f', '#3b5998', '#192f6a']}
-                style={styles.linearGradient}>
-                <Text style={styles.buttonText}>
-                    Sign in with Facebook
-                </Text>
-            </LinearGradient>
+            <TouchableOpacity
+                style={{
+                backgroundColor: '#1A237E',
+                borderBottomWidth: 5,
+                borderBottomColor: '#304FFE',
+                padding: 15,
+                width: 200,
+                borderTopLeftRadius: 20,
+                borderTopRightRadius: 20
+            }}>
+                <Text
+                    style={{
+                    color: 'white',
+                    textAlign: 'center',
+                    fontSize: 28
+                }}>Learning</Text>
+            </TouchableOpacity>
         </View>;
     }
 
@@ -46,21 +46,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#000',
         // backgroundImage: `linear-gradient(to bottom, ${"#f2323f"} 0%, ${"#f2ff3f"}
         // 100%)`,
-    },
-    linearGradient: {
-        paddingLeft: 15,
-        paddingRight: 15,
-        borderRadius: 5,
-        width: 250,
-        height: 50
-    },
-    buttonText: {
-        fontSize: 18,
-        fontFamily: 'Gill Sans',
-        textAlign: 'center',
-        margin: 10,
-        color: '#ffffff',
-        backgroundColor: 'transparent'
     }
 });
 export default HomeScreen;
