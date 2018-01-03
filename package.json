@@ -10,10 +10,10 @@
     "test:web": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "electron": "react-scripts start & electron .",
-    "transpile": "babel node_modules/react-native-web-linear-gradient/src/index.js --out-file node_modules/react-native-web-linear-gradient/src/index.js",
-    "transpile2": "babel src/components/Panel.js --out-file src/components/Panel.js",
-    "transpile3": "babel node_modules/react-native-collapsible/Accordion.js --out-file node_modules/react-native-collapsible/Accordion.js",
-    "transpile4": "babel node_modules/react-native-collapsible/Collapsible.js --out-file node_modules/react-native-collapsible/Collapsible.js"
+    "trans": "babel node_modules/react-native-web-linear-gradient/src/index.js --out-file node_modules/react-native-web-linear-gradient/src/index.js",
+    "trans2": "babel src/components/Panel.js --out-file src/components/Panel.js",
+    "trans3": "babel node_modules/react-native-collapsible/Accordion.js --out-file node_modules/react-native-collapsible/Accordion.js",
+    "trans4": "babel node_modules/react-native-collapsible/Collapsible.js --out-file node_modules/react-native-collapsible/Collapsible.js"
   },
   "rnpm": {
     "assets": [
