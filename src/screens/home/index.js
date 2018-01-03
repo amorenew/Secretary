@@ -23,7 +23,7 @@ class index extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            fadeAnim: new Animated.Value(0),
+            fadeAnim: new Animated.Value(100),
             isExpand: false
         }
     }
@@ -34,9 +34,9 @@ class index extends React.Component {
             : 100
         Animated
             .timing(this.state.fadeAnim, {
-            toValue: expandTo,
-            duration: 800
-        })
+                toValue: expandTo,
+                duration: 800
+            })
             .start(() => {
                 this.setState((state) => ({
                     isExpand: !state.isExpand
@@ -50,70 +50,59 @@ class index extends React.Component {
                     source={Images.paper2}
                     resizeMode={Image.resizeMode.stretch}
                     style={{
-                    width: '100%',
-                    height: '100%',
-                    position: 'absolute',
-                    justifyContent: 'center',
-                    alignItems: 'center'
-                }}>
+                        width: '100%',
+                        height: '100%',
+                        position: 'absolute',
+                        justifyContent: 'center',
+                        alignItems: 'center'
+                    }}>
                     <ScrollView>
-                        <ImageBackground
-                            source={Images.paper}
-                            resizeMode={Image.resizeMode.stretch}
-                            style={{
-                            width: 200,
-                            height: 100,margin:30,
-                            justifyContent: 'center',
-                            alignItems: 'center'
-                        }}><Text
-                                style={{
-                                color: 'blue',
-                                zIndex: 0,   fontFamily: 'Patrick Hand',
-                                fontSize: 38
-                            }}>Learning</Text>
-                        </ImageBackground>
+
                         <TouchableOpacity
                             style={{
-                            width: 250,
-                            height: 130,
-                            padding: 10,
-                            justifyContent: 'center',
-                            backgroundColor: 'black',
-                            alignItems: 'center'
-                        }}
+                                width: 250,
+                                height: 130,
+                                padding: 10,
+                                justifyContent: 'center',
+                                backgroundColor: 'black',
+                                alignItems: 'center'
+                            }}
                             onPress={() => this.onPress2()}></TouchableOpacity>
                         <Animated.View
                             style={{
-                            width: '100%',
-                            height: this.state.fadeAnim
-                        }}>
-                            <LinearGradient
-                                colors={['#5E98D9', '#558ED2', '#487EC7']}
-                                style={{
                                 width: '100%',
-                                height: '100%',
-                                justifyContent: 'center',
-                                alignItems: 'center',
-                                paddingLeft: 15,
-                                paddingRight: 15,
-                                borderRadius: 10,
-                                zIndex: 1
+                                height: this.state.fadeAnim,
+
                             }}>
-                                <ImageBackground
-                                    source={Images.learning}
-                                    resizeMode={Image.resizeMode.contain}
-                                    style={{
+                            <LinearGradient
+                                style={{
                                     width: '100%',
                                     height: '100%',
                                     justifyContent: 'center',
-                                    alignItems: 'center'
+                                    alignItems: 'center',
+                                    backgroundColor: 'transparent',
+                                    padding: 1,
+                                    borderRadius: 10,
+                                    overflow: 'hidden',
+                
                                 }}>
-                                    <Text
+                                <ImageBackground
+                                    source={Images.paper}
+                                    borderRadius={10}
+
+                                    resizeMode={Image.resizeMode.cover}
+                                    style={{
+                                        width: '100%',
+                                        height: '100%', margin: 30,
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+
+                                    }}><Text
                                         style={{
-                                        color: 'white',
-                                        zIndex: 0,
-                                        fontSize: 38
-                                    }}>Learning</Text>
+                                            color: '#AAA',
+                                            zIndex: 0, fontFamily: 'Patrick Hand',
+                                            fontSize: 38
+                                        }}>Learning</Text>
                                 </ImageBackground>
                             </LinearGradient>
                         </Animated.View>
