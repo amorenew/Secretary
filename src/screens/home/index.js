@@ -28,7 +28,7 @@ class index extends React.Component {
     onPress2 = () => {
         var expandTo = this.state.isExpand
             ? 0
-            : 100
+            : 40
         Animated
             .timing(this.state.fadeAnim, {
                 toValue: expandTo,
@@ -56,9 +56,8 @@ class index extends React.Component {
                     <ScrollView>
                         <TouchableOpacity
                             style={{
-                                width: 250,
-                                height: 130,
-                                padding: 5,
+                                width: 270,
+                                height: 100,
                                 justifyContent: 'center',
                                 alignItems: 'center'
                             }}
@@ -70,9 +69,7 @@ class index extends React.Component {
                                     height: '100%',
                                     justifyContent: 'center',
                                     alignItems: 'center',
-                                    paddingLeft: 15,
-                                    paddingRight: 15,
-                                    borderRadius: 10,
+                                    borderRadius: 10,padding:3,
                                     zIndex: 1
                                 }}>
                                 <ImageBackground
@@ -87,8 +84,7 @@ class index extends React.Component {
                                     <Text
                                         style={{
                                             color: 'white',
-                                            zIndex: 0,
-                                            fontSize: 38
+                                            fontSize: 30
                                         }}>Learning</Text>
                                 </ImageBackground>
                             </LinearGradient>
@@ -100,7 +96,7 @@ class index extends React.Component {
                                 zIndex: 10
                             }}>
                             <LinearGradient
-                                colors={['#AAA', '#CCC', '#EEE']}
+                                colors={['rgb(230,230,230)', 'rgb(200,200,200)', 'rgb(180,180,180)']}
                                 style={{
                                     width: '100%',
                                     height: '100%',
@@ -108,20 +104,30 @@ class index extends React.Component {
                                     alignItems: 'center',
                                     paddingLeft: 8,
                                     paddingRight: 8,
-                                    borderRadius: 5,
+                                    borderRadius: 3,marginVertical:8
                                 }}><Text
                                     style={{
                                         width: '100%',
                                         color: this.state.isExpand ? 'black' : 'rgba(0,0,0,0)',
-                                        fontSize: 25, textAlign: 'left'
-                                    }}>Physics: Chapter 2</Text><Text
-                                        style={{
-                                            width: '100%',
-                                            color: this.state.isExpand ? 'black' : 'rgba(0,0,0,0)',
-                                            fontSize: 25
-                                        }}>Math: Chapter 3</Text></LinearGradient>
+                                        fontSize: 20
+                                    }}>Physics: Chapter 1</Text></LinearGradient>
+                            <LinearGradient
+                                colors={['rgb(230,230,230)', 'rgb(200,200,200)', 'rgb(180,180,180)']}
+                                style={{
+                                    width: '100%',
+                                    height: '100%',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    paddingLeft: 8,
+                                    paddingRight: 8,
+                                    borderRadius: 3,
+                                }}><Text
+                                    style={{
+                                        width: '100%',
+                                        color: this.state.isExpand ? 'black' : 'rgba(0,0,0,0)',
+                                        fontSize: 20
+                                    }}>Math: Chapter 3</Text></LinearGradient>
                         </Animated.View>
-
                     </ScrollView>
                 </ImageBackground>
             </View>
