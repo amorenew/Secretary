@@ -1,5 +1,19 @@
 {
   "presets": [
+<<<<<<< HEAD
+=======
+    [
+      "env",
+      {
+        "targets": {
+          "chrome": "current",
+          "node": "current"
+        }
+      }
+    ],
+    "stage-0",
+    "react",
+>>>>>>> c87d17f5d1f33e83bdd63c63ba73e65a523605ff
     "react-native"
   ]
 }

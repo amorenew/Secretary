@@ -43,9 +43,12 @@
     "babel-jest": "22.0.4",
     "babel-plugin-transform-react-remove-prop-types": "0.4.12",
     "babel-preset-env": "^1.6.1",
+<<<<<<< HEAD
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react": "^6.24.1",
+=======
+>>>>>>> c87d17f5d1f33e83bdd63c63ba73e65a523605ff
     "babel-preset-react-native": "4.0.0",
     "babel-preset-stage-0": "^6.24.1",
     "electron": "1.7.10",
