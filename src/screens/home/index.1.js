@@ -5,7 +5,7 @@ import {
     Button,
     Text,
     TouchableOpacity,
-    TouchableWithoutFeedback,
+    TouchableHighlight,
     ImageBackground,
     Image,
     ScrollView,
@@ -14,7 +14,10 @@ import {
 import ElevatedView from './../../components/ElevatedView'
 import Images from './../../constants/Images'
 import LinearGradient from 'react-native-linear-gradient';
-
+// import Panel from './../../components/Panel'; import Accordion from
+// 'react-native-collapsible/Accordion'; import Collapsible from
+// 'react-native-collapsible'; import Collapsible from './Collapsible'; import
+// Animated from 'animated'
 class index extends React.Component {
 
     constructor(props) {
@@ -54,72 +57,58 @@ class index extends React.Component {
                         alignItems: 'center'
                     }}>
                     <ScrollView>
+
                         <TouchableOpacity
                             style={{
-                                width: 250,
-                                height: 130,
-                                padding: 5,
                                 justifyContent: 'center',
-                                alignItems: 'center'
+                                alignItems: 'center',
+                                alignContent: 'center'
                             }}
-                            onPress={() => this.onPress2()}>
-                            <LinearGradient
-                                colors={['#5E98D9', '#558ED2', '#487EC7']}
+                            onPress={() => this.onPress2()}><ImageBackground
+                                source={Images.paper_parent}
+                                borderRadius={10}
+                                resizeMode={Image.resizeMode.stretch}
                                 style={{
-                                    width: '100%',
-                                    height: '100%',
                                     justifyContent: 'center',
                                     alignItems: 'center',
-                                    paddingLeft: 15,
-                                    paddingRight: 15,
-                                    borderRadius: 10,
-                                    zIndex: 1
-                                }}>
-                                <ImageBackground
-                                    source={Images.learning}
-                                    resizeMode={Image.resizeMode.contain}
+                                }}><Text
                                     style={{
-                                        width: '100%',
-                                        height: '100%',
+                                        width: 180,
+                                        paddingVertical: 20,
+                                        alignSelf: 'center',
                                         justifyContent: 'center',
-                                        alignItems: 'center'
-                                    }}>
-                                    <Text
-                                        style={{
-                                            color: 'white',
-                                            zIndex: 0,
-                                            fontSize: 38
-                                        }}>Learning</Text>
-                                </ImageBackground>
-                            </LinearGradient>
-                        </TouchableOpacity>
+                                        alignItems: 'center',
+                                        textAlignVertical: 'center',
+                                        textAlign: 'center',
+                                        color: '#000',
+                                        zIndex: 0,
+                                        fontFamily: 'Patrick Hand',
+                                        fontSize: 38
+                                    }}>Learning</Text></ImageBackground></TouchableOpacity>
                         <Animated.View
                             style={{
                                 width: '100%',
                                 height: this.state.fadeAnim,
-                                zIndex: 10
                             }}>
-                            <LinearGradient
-                                colors={['#AAA', '#CCC', '#EEE']}
+                            <ImageBackground
+                                source={Images.paper_child}
+                                borderRadius={10}
+                                resizeMode={Image.resizeMode.stretch}
                                 style={{
                                     width: '100%',
                                     height: '100%',
                                     justifyContent: 'center',
-                                    alignItems: 'center',
-                                    paddingLeft: 8,
-                                    paddingRight: 8,
-                                    borderRadius: 5,
+                                    alignItems: 'center'
+
                                 }}><Text
                                     style={{
-                                        width: '100%',
-                                        color: this.state.isExpand ? 'black' : 'rgba(0,0,0,0)',
-                                        fontSize: 25, textAlign: 'left'
-                                    }}>Physics: Chapter 2</Text><Text
-                                        style={{
-                                            width: '100%',
-                                            color: this.state.isExpand ? 'black' : 'rgba(0,0,0,0)',
-                                            fontSize: 25
-                                        }}>Math: Chapter 3</Text></LinearGradient>
+                                        height: '100%',
+                                        color: this.state.isExpand ? '#AAA' : '#0000000y',
+                                        zIndex: 0,
+                                        fontFamily: 'Patrick Hand',
+                                        fontSize: 38
+                                    }}>Learning</Text>
+                            </ImageBackground>
                         </Animated.View>
 
                     </ScrollView>

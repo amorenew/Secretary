@@ -1,6 +1,8 @@
 const Images = {
     paper: require('./../assets/images/paper_creases.jpg'),
     paper2: require('./../assets/images/paper_creases2.jpg'),
+    paper_parent: require('./../assets/images/paper_parent.png'),
+    paper_child: require('./../assets/images/paper_child.png'),
     learning: require('./../assets/images/learning.png'),
     sport: require('./../assets/images/sport.png'),
 };
