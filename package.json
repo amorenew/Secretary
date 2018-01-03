@@ -1,5 +1,5 @@
 {
-  "name": "secretary",
+  "name": "lifemaster",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -9,20 +9,26 @@
     "build": "react-scripts build",
     "test:web": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "electron": "react-scripts start & electron ."
+    "electron": "react-scripts start & electron .",
+    "transpile": "babel node_modules/react-native-web-linear-gradient/src/index.js --out-file node_modules/react-native-web-linear-gradient/src/index.js",
+    "transpile2": "babel src/components/Panel.js --out-file src/components/Panel.js",
+    "transpile3": "babel node_modules/react-native-collapsible/Accordion.js --out-file node_modules/react-native-collapsible/Accordion.js",
+    "transpile4": "babel node_modules/react-native-collapsible/Collapsible.js --out-file node_modules/react-native-collapsible/Collapsible.js"
+  },
+  "rnpm": {
+    "assets": [
+      "./src/assets/fonts"
+    ]
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.36",
-    "@babel/preset-env": "^7.0.0-beta.36",
-    "babel-loader": "^8.0.0-beta.0",
-    "babel-preset-es2015": "^6.24.1",
-    "prop-types": "^15.6.0",
+    "animated": "^0.2.1",
     "react": "16.2.0",
+    "react-collapsible": "^2.0.3",
     "react-dom": "16.2.0",
     "react-native": "0.51.0",
     "react-native-collapsible": "^0.9.0",
     "react-native-linear-gradient": "^2.4.0",
-    "react-native-web": "0.2.2",
+    "react-native-web": "0.3.0-rc.4",
     "react-native-web-linear-gradient": "^1.0.2",
     "react-redux": "5.0.6",
     "react-router": "4.2.0",
@@ -30,14 +36,18 @@
     "react-router-native": "4.2.0",
     "redux": "3.7.2",
     "redux-thunk": "2.2.0",
-    "webpack": "^3.10.0"
+    "rmwc": "0.0.1-rc12"
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
     "babel-jest": "22.0.4",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
     "babel-plugin-transform-react-remove-prop-types": "0.4.12",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "babel-preset-react-native": "4.0.0",
+    "babel-preset-stage-0": "^6.24.1",
     "electron": "1.7.10",
     "jest": "22.0.4",
     "react-scripts": "1.0.17",

@@ -2,6 +2,6 @@ import React, {Component} from 'react';
 import {
     AppRegistry,
 } from 'react-native';
-import App from './templates/re-start/App'
+import App from './src/App';
 
 AppRegistry.registerComponent('everywhere', () => App);

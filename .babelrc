@@ -1,12 +1,5 @@
 {
   "presets": [
-    "es2015",
-    "stage-0",
-    "react",
     "react-native"
-  ],
-  "plugins": [
-    "transform-class-properties",
-    "transform-react-jsx"
   ]
 }

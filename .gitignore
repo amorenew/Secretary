@@ -27,12 +27,14 @@ project.xcworkspace
 build/
 .idea
 .gradle
-local.properties
+#local.properties
 *.iml
 
 # node.js
 #
 node_modules/
+!node_modules/react-native-web-linear-gradient/src/index.js
+!node_modules/react-scripts/config/webpack.config.dev.js
 npm-debug.log
 yarn-error.log
 

@@ -1,3 +1,5 @@
+// source:https://github.com/crysfel/Panels/blob/master/components/Panel.js
+
 import React, {
     StyleSheet,
     Text,
@@ -7,21 +9,18 @@ import React, {
     Animated
 } from 'react-native';
 
-export default class Panel extends React.Component {
+class Panel extends React.PureComponent {
 
-    constructor(props) {
-        super(props);
-
-        this.icons = {
+    static defaultProps = {
+        icons: {
             'up': require('./images/Arrowhead-01-128.png'),
             'down': require('./images/Arrowhead-Down-01-128.png')
-        };
-
-        this.state = {
-            title: props.title,
-            expanded: true,
-            animation: new Animated.Value()
-        };
+        }
+    }
+    state = {
+        title: this.props.title,
+        expanded: true,
+        animation: new Animated.Value()
     }
 
     toggle() {
@@ -122,3 +121,4 @@ var styles = StyleSheet.create({
     }
 });
 
+export default Panel;

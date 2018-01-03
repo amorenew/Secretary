@@ -1,59 +1,76 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
-import {View,Platform} from 'react-native';
-import {isMobile, isReactNative} from './Cross'
-
-// export default !isMobile() && isReactNative()
-//   ? require('react-native-linear-gradient').LinearGradient
-// export default Platform.OS === 'web'
-//   ? require('react-native-linear-gradient').LinearGradient
-export default class LinearGradient extends Component {
-
-    static propTypes = {
-      start: PropTypes
-        .shape({x: PropTypes.number, y: PropTypes.number})
-        .isRequired,
-      end: PropTypes
-        .shape({x: PropTypes.number, y: PropTypes.number})
-        .isRequired,
-      locations: PropTypes.arrayOf(PropTypes.number),
-      colors: PropTypes
-        .arrayOf(PropTypes.string)
-        .isRequired,
-      children: PropTypes.oneOfType([
-        PropTypes.node, PropTypes.arrayOf(PropTypes.node)
-      ])
-    };
-
-    render() {
-      const {
-        start,
-        end,
-        locations,
-        colors,
-        style,
-        children,
-        ...otherProps
-      } = this.props;
-      const vec = {
-        x: end.x - start.x,
-        y: -(end.y - start.y)
-      };
-      const angleRad = Math.atan(vec.y / vec.x);
-      const angleDeg = Math.round((angleRad * 180) / Math.PI);
-      const angleWeb = -angleDeg + 90;
-      const realLocations = locations || colors.map((color, i) => (1 / (colors.length - 1)) * i);
-      const colorStrings = colors.map((color, i) => `${color} ${Math.round(realLocations[i] * 100)}%`).join(', ');
-      return (
-        <View
-          {...otherProps}
-          style={[
-          style, {
-            backgroundImage: `linear-gradient(${angleWeb}deg, ${colorStrings})`
-          }
-        ]}>
-          {children}
-        </View>
-      );
+//from react-native-web-linear-gradient
+/*sample
+ <LinearGradient
+                colors={['#5683FF', '#568355', '#568300']}
+                style={[styles.linearGradient, styles.container]}>
+                linearGradient: {
+        paddingLeft: 15,
+        paddingRight: 15,
+        borderRadius: 10
     }
+*/
+import React, { PureComponent } from 'react';
+import { View } from 'react-native';
+
+export default class LinearGradient extends PureComponent {
+  static defaultProps = {
+    start: {
+      x: 0.5,
+      y: 0,
+    },
+    end: {
+      x: 0.5,
+      y: 1,
+    },
+    locations: [],
+    colors: [],
+  };
+
+  state = {
+    width: 1,
+    height: 1,
+  };
+
+  measure = ({ nativeEvent }) =>
+    this.setState({
+      width: nativeEvent.layout.width,
+      height: nativeEvent.layout.height,
+    });
+
+  getAngle = () => {
+    // Math.atan2 handles Infinity
+    const angle =
+      Math.atan2(
+        this.state.width * (this.props.end.y - this.props.start.y),
+        this.state.height * (this.props.end.x - this.props.start.x)
+      ) +
+      Math.PI / 2;
+    return angle + 'rad';
+  };
+
+  getColors = () =>
+    this.props.colors
+      .map((color, index) => {
+        const location = this.props.locations[index];
+        let locationStyle = '';
+        if (location) {
+          locationStyle = ' ' + location * 100 + '%';
+        }
+        return color + locationStyle;
+      })
+      .join(',');
+
+  render() {
+    return (
+      <View
+        style={[
+          this.props.style,
+          { backgroundImage: `linear-gradient(${this.getAngle()},${this.getColors()})` },
+        ]}
+        onLayout={this.measure}
+      >
+        {this.props.children}
+      </View>
+    );
   }
+}
