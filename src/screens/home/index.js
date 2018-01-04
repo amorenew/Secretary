@@ -2,16 +2,15 @@ import React from 'react';
 import {
     StyleSheet,
     View,
-    Button,
     Text,
-    TouchableOpacity,
-    TouchableWithoutFeedback,
     ImageBackground,
     Image,
     ScrollView,
     Animated
 } from 'react-native';
 import ElevatedView from './../../components/ElevatedView'
+import ImageButton from './../../components/ImageButton'
+import InviteView from './../../components/InviteView'
 import Images from './../../constants/Images'
 import LinearGradient from 'react-native-linear-gradient';
 
@@ -28,12 +27,12 @@ class index extends React.Component {
     onPress2 = () => {
         var expandTo = this.state.isExpand
             ? 0
-            : 40
+            : 240
         Animated
             .timing(this.state.fadeAnim, {
-                toValue: expandTo,
-                duration: 800
-            })
+            toValue: expandTo,
+            duration: 800
+        })
             .start(() => {
                 this.setState((state) => ({
                     isExpand: !state.isExpand
@@ -47,86 +46,58 @@ class index extends React.Component {
                     source={Images.paper2}
                     resizeMode={Image.resizeMode.stretch}
                     style={{
-                        width: '100%',
-                        height: '100%',
-                        position: 'absolute',
-                        justifyContent: 'center',
-                        alignItems: 'center'
-                    }}>
-                    <ScrollView>
-                        <TouchableOpacity
+                    width: '100%',
+                    height: '100%',
+                    position: 'absolute',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}>
+                    <ScrollView contentContainerStyle={{
+                    width: '100%',
+                    height: '100%',
+                    overflow:'hidden'
+                }}>
+                        <ImageButton
+                            onPress={() => this.onPress2()}
+                            title={"Learning"}
+                            colors={['#70B5FF', '#558ED2', '#487EC7']}
                             style={{
-                                width: 270,
-                                height: 100,
-                                justifyContent: 'center',
-                                alignItems: 'center'
-                            }}
-                            onPress={() => this.onPress2()}>
-                            <LinearGradient
-                                colors={['#5E98D9', '#558ED2', '#487EC7']}
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    borderRadius: 10,padding:3,
-                                    zIndex: 1
-                                }}>
-                                <ImageBackground
-                                    source={Images.learning}
-                                    resizeMode={Image.resizeMode.contain}
-                                    style={{
-                                        width: '100%',
-                                        height: '100%',
-                                        justifyContent: 'center',
-                                        alignItems: 'center'
-                                    }}>
-                                    <Text
-                                        style={{
-                                            color: 'white',
-                                            fontSize: 30
-                                        }}>Learning</Text>
-                                </ImageBackground>
-                            </LinearGradient>
-                        </TouchableOpacity>
+                            margin: 10,
+                            width: 280,
+                            height: 100
+                        }}
+                            image={Images.learning}
+                            fontSize={38}/>
+                        <ImageButton
+                            style={{
+                            margin: 10,
+                            width: 280,
+                            height: 100
+                        }}
+                            onPress={() => this.onPress2()}
+                            title={"Sport"}
+                            colors={['#E09898', '#DB4646', '#C90000']}
+                            image={Images.sport}
+                            fontSize={38}/>
+
                         <Animated.View
                             style={{
-                                width: '100%',
-                                height: this.state.fadeAnim,
-                                zIndex: 10
-                            }}>
-                            <LinearGradient
-                                colors={['rgb(230,230,230)', 'rgb(200,200,200)', 'rgb(180,180,180)']}
+                            width: '100%',
+                            height: this.state.fadeAnim,
+                            zIndex: 10,
+                            flexDirection: 'col'
+                        }}>
+                            <InviteView
                                 style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    paddingLeft: 8,
-                                    paddingRight: 8,
-                                    borderRadius: 3,marginVertical:8
-                                }}><Text
-                                    style={{
-                                        width: '100%',
-                                        color: this.state.isExpand ? 'black' : 'rgba(0,0,0,0)',
-                                        fontSize: 20
-                                    }}>Physics: Chapter 1</Text></LinearGradient>
-                            <LinearGradient
-                                colors={['rgb(230,230,230)', 'rgb(200,200,200)', 'rgb(180,180,180)']}
-                                style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    justifyContent: 'center',
-                                    alignItems: 'center',
-                                    paddingLeft: 8,
-                                    paddingRight: 8,
-                                    borderRadius: 3,
-                                }}><Text
-                                    style={{
-                                        width: '100%',
-                                        color: this.state.isExpand ? 'black' : 'rgba(0,0,0,0)',
-                                        fontSize: 20
-                                    }}>Math: Chapter 3</Text></LinearGradient>
+                                margin: 10,
+                                width: 280,
+                                height: 180
+                            }}
+                                isExpand={this.state.isExpand}
+                                onPress={() => this.onPress2()}
+                                title={"Sport"}
+                                colors={['#E5E5E5', '#EFEFEF', '#EAEAEA']}
+                                fontSize={38}/>
                         </Animated.View>
                     </ScrollView>
                 </ImageBackground>
@@ -144,7 +115,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column'
-
     },
 
     stayElevated: {

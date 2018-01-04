@@ -5,6 +5,7 @@ const Images = {
     paper_child: require('./../assets/images/paper_child.png'),
     learning: require('./../assets/images/learning.png'),
     sport: require('./../assets/images/sport.png'),
+    invite: require('./../assets/images/invite.png'),
 };
 
 export default Images;
@@ -15,3 +16,5 @@ export default Images;
 //source for sport image
 // https://www.flaticon.com/free-icon/gym_489860#term=sport&page=1&position=93
 //color #DDDDDD
+//source for invite image
+// https://www.flaticon.com/free-icon/sweet_194394
