@@ -27,11 +27,13 @@ class index extends React.Component {
     onPress2 = () => {
         var expandTo = this.state.isExpand
             ? 0
-            : 240
+            : 180
+
         Animated
             .timing(this.state.fadeAnim, {
             toValue: expandTo,
-            duration: 800
+            duration: 800,
+            useNativeDriver: true
         })
             .start(() => {
                 this.setState((state) => ({
@@ -52,11 +54,12 @@ class index extends React.Component {
                     justifyContent: 'center',
                     alignItems: 'center'
                 }}>
-                    <ScrollView contentContainerStyle={{
-                    width: '100%',
-                    height: '100%',
-                    overflow:'hidden'
-                }}>
+                    <ScrollView
+                        contentContainerStyle={{
+                        width: '100%',
+                        height: '100%',
+                        overflow: 'hidden'
+                    }}>
                         <ImageButton
                             onPress={() => this.onPress2()}
                             title={"Learning"}
@@ -82,16 +85,14 @@ class index extends React.Component {
 
                         <Animated.View
                             style={{
-                            width: '100%',
+                            width: 280,
                             height: this.state.fadeAnim,
                             zIndex: 10,
                             flexDirection: 'col'
                         }}>
                             <InviteView
                                 style={{
-                                margin: 10,
-                                width: 280,
-                                height: 180
+                                margin: 10
                             }}
                                 isExpand={this.state.isExpand}
                                 onPress={() => this.onPress2()}
