@@ -5,6 +5,9 @@ Template from :https://github.com/react-everywhere/re-start/tree/react-16
 ### Tips on installation
 After you install npm stuff you should run **yarn transpile** because of the following bug
 https://stackoverflow.com/questions/48034538/how-to-solve-this-error-you-may-need-an-appropriate-loader-to-handle-this-file-t
+##### Webpack config
+add the following in alias area
+'react-native-linear-gradient': 'react-native-web-linear-gradient',
 
 #### Fonts
 Link fonts in RN ios and Android
