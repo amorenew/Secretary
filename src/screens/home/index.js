@@ -7,21 +7,23 @@ import {
     Image,
     ScrollView,
     Animated,
-    Platform
+    Platform,
+    TouchableOpacity
 } from 'react-native';
 import ElevatedView from './../../components/ElevatedView'
 import ImageButton from './../../components/ImageButton'
 import InviteView from './../../components/InviteView'
 import Images from './../../constants/Images'
 import LinearGradient from 'react-native-linear-gradient';
-
+import MenuView from './../menu/index'
 class index extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             fadeAnim: new Animated.Value(0),
-            isExpand: false
+            isExpand: false,
+            isMenu: false
         }
     }
 
@@ -33,7 +35,7 @@ class index extends React.Component {
         Animated
             .timing(this.state.fadeAnim, {
             toValue: expandTo,
-            duration: 800,
+            duration: 800
         })
             .start(() => {
                 this.setState((state) => ({
@@ -41,18 +43,28 @@ class index extends React.Component {
                 }));
             });
     }
+    showMenu = () => {
+        this.setState({
+            isMenu: !this.state.isMenu
+        })
+    }
     render() {
         return (
             <View style={styles.container}>
-            <View style={{width:'100%',padding:7,alignItems:'flex-start'}}>
-                <Image
-                    resizeMode={Image.resizeMode.contain}
+                <View
                     style={{
-                    height: 35,
-                    width: 35
-                }}
-                    source={Images.menu}/>
-                    </View>
+                    width: '100%',
+                    padding: 7,
+                    alignItems: 'flex-start'
+                }}>
+                    <TouchableOpacity onPress={() => this.showMenu()}><Image
+                        resizeMode={Image.resizeMode.contain}
+                        style={{
+                height: 35,
+                width: 35
+            }}
+                        source={Images.menu}/></TouchableOpacity>
+                </View>
                 <ScrollView
                     contentContainerStyle={{
                     width: '100%',
@@ -87,7 +99,9 @@ class index extends React.Component {
                         width: 280,
                         height: this.state.fadeAnim,
                         zIndex: 10,
-                        flexDirection: Platform.OS==='web'?'col':'column'
+                        flexDirection: Platform.OS === 'web'
+                            ? 'col'
+                            : 'column'
                     }}>
                         <InviteView
                             style={{
@@ -100,6 +114,9 @@ class index extends React.Component {
                             fontSize={38}/>
                     </Animated.View>
                 </ScrollView>
+                {this.state.isMenu
+                    ? <MenuView />
+                    : null}
             </View>
 
         );
@@ -110,7 +127,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         height: '100%',
-        maxWidth: 800,
+        maxWidth: Platform.OS==='web'?400:0,
         position: 'absolute',
         justifyContent: 'center',
         alignItems: 'center',

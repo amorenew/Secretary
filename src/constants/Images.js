@@ -8,6 +8,8 @@ const Images = {
     invite: require('./../assets/images/invite.png'),
     menu: require('./../assets/images/menu.png'),
     back: require('./../assets/images/back.png'),
+    close: require('./../assets/images/close.png'),
+    cloud: require('./../assets/images/cloud.png'),
 };
 
 export default Images;
@@ -24,3 +26,5 @@ export default Images;
 //https://www.flaticon.com/free-icon/menu_130918#term=menu button&page=1&position=44
 //source for back icon
 //https://www.flaticon.com/free-icon/back_130882
+//source for close icon
+//https://www.flaticon.com/free-icon/close_579006#term=close&page=1&position=33
