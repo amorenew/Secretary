@@ -62,7 +62,7 @@ class index extends React.Component {
                 }}>
                     <ImageButton
                         onPress={() => this.onPress2()}
-                        title={"Learning"}
+                        title={"Learningdasassfas"}
                         colors={['#70B5FF', '#558ED2', '#487EC7']}
                         style={{
                         margin: 10,
@@ -96,8 +96,8 @@ class index extends React.Component {
                         }}
                             isExpand={this.state.isExpand}
                             onPress={() => this.onPress2()}
-                            title={"Sport"}
-                            colors={['#E5E5E5', '#EFEFEF', '#EAEAEA']}
+                            title={"Sportssss"}
+                            colors={['#E5E5E5', '#EF99EF', '#EAEAEA']}
                             fontSize={38}/>
                     </Animated.View>
                 </ScrollView>
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'column',
-        backgroundColor: '#FFF'
+        backgroundColor: 'black'
     },
 
     stayElevated: {

@@ -8,7 +8,20 @@ https://stackoverflow.com/questions/48034538/how-to-solve-this-error-you-may-nee
 ##### Webpack config
 add the following in alias area
 'react-native-linear-gradient': 'react-native-web-linear-gradient',
+##Later##
+ // include: [
+            //   /src\/*/,
+            //   /node_modules\/react-native-/,
+            // ],
+            loader: require.resolve('babel-loader'),
+            options: {
+              // @remove-on-eject-begin
+              babelrc: true,
+              presets: [require.resolve('babel-preset-react-native')],
 
+              
+              or in .babelrc by babel plugin include
+                  "libs": "/node_modules\/react-native-/"
 #### Fonts
 Link fonts in RN ios and Android
 https://medium.com/@danielskripnik/how-to-add-and-remove-custom-fonts-in-react-native-b2830084b0e4

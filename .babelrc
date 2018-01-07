@@ -3,5 +3,13 @@
     "stage-0",
     "react",
     "react-native"
+  ],
+  "plugins": [
+    [
+      "include",
+      {
+        "root": "src"
+      }
+    ]
   ]
 }

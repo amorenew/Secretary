@@ -6,6 +6,8 @@ const Images = {
     learning: require('./../assets/images/learning.png'),
     sport: require('./../assets/images/sport.png'),
     invite: require('./../assets/images/invite.png'),
+    menu: require('./../assets/images/menu.png'),
+    back: require('./../assets/images/back.png'),
 };
 
 export default Images;
@@ -18,3 +20,7 @@ export default Images;
 //color #DDDDDD
 //source for invite image
 // https://www.flaticon.com/free-icon/sweet_194394
+//source for menu icon
+//https://www.flaticon.com/free-icon/menu_130918#term=menu button&page=1&position=44
+//source for back icon
+//https://www.flaticon.com/free-icon/back_130882
