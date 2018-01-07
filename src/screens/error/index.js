@@ -26,21 +26,7 @@ class index extends React.Component {
     }
 
     onPress2 = () => {
-        var expandTo = this.state.isExpand
-            ? 0
-            : 180
-
-        Animated
-            .timing(this.state.fadeAnim, {
-            toValue: expandTo,
-            duration: 800,
-            useNativeDriver: true
-        })
-            .start(() => {
-                this.setState((state) => ({
-                    isExpand: !state.isExpand
-                }));
-            });
+        this.props.history.push('/login');
     }
     render() {
         return (
@@ -61,8 +47,8 @@ class index extends React.Component {
                     overflow: 'hidden'
                 }}>
                     <ImageButton
-                        onPress={() => this.props.history.goBack()}
-                        title={"Back"}
+                        onPress={() => this.onPress2()}
+                        title={"Error Page"}
                         colors={['#70B5FF', '#558ED2', '#487EC7']}
                         style={{
                         margin: 10,
@@ -71,35 +57,7 @@ class index extends React.Component {
                     }}
                         image={Images.learning}
                         fontSize={38}/>
-                    <ImageButton
-                        style={{
-                        margin: 10,
-                        width: 280,
-                        height: 100
-                    }}
-                        onPress={() => this.onPress2()}
-                        title={"Sport"}
-                        colors={['#E09898', '#DB4646', '#C90000']}
-                        image={Images.sport}
-                        fontSize={38}/>
-
-                    <Animated.View
-                        style={{
-                        width: 280,
-                        height: this.state.fadeAnim,
-                        zIndex: 10,
-                        flexDirection: Platform.OS==='web'?'col':'column'
-                    }}>
-                        <InviteView
-                            style={{
-                            margin: 10
-                        }}
-                            isExpand={this.state.isExpand}
-                            onPress={() => this.onPress2()}
-                            title={"Sportssss"}
-                            colors={['#E5E5E5', '#EF99EF', '#EAEAEA']}
-                            fontSize={38}/>
-                    </Animated.View>
+                  
                 </ScrollView>
             </View>
 

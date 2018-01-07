@@ -34,7 +34,6 @@ class index extends React.Component {
             .timing(this.state.fadeAnim, {
             toValue: expandTo,
             duration: 800,
-            useNativeDriver: true
         })
             .start(() => {
                 this.setState((state) => ({
@@ -61,7 +60,7 @@ class index extends React.Component {
                     overflow: 'hidden'
                 }}>
                     <ImageButton
-                        onPress={() => this.onPress2()}
+                        onPress={() => this.props.history.push('login')}
                         title={"Learning"}
                         colors={['#70B5FF', '#558ED2', '#487EC7']}
                         style={{
