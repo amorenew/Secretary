@@ -6,9 +6,10 @@ Template from :https://github.com/react-everywhere/re-start/tree/react-16
 After you install npm stuff you should run **yarn transpile** because of the following bug
 https://stackoverflow.com/questions/48034538/how-to-solve-this-error-you-may-need-an-appropriate-loader-to-handle-this-file-t
 ##### Webpack config
-add the following in alias area
+add the following in alias area dev and #prod#
 'react-native-linear-gradient': 'react-native-web-linear-gradient',
 ##Later##
+in webpack dev and #prod#
  // include: [
             //   /src\/*/,
             //   /node_modules\/react-native-/,
