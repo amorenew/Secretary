@@ -74,7 +74,6 @@ export default class InviteView extends React.Component {
                             borderBottomRightRadius:1,
                             paddingVertical:8,
                             alignSelf: 'flex-end',
-                            justifySelf: 'flex-end',
                             marginTop: '5%'
                         }
                     ]}

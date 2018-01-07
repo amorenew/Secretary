@@ -115,7 +115,7 @@ class index extends React.Component {
                     </Animated.View>
                 </ScrollView>
                 {this.state.isMenu
-                    ? <MenuView />
+                    ? <MenuView/>
                     : null}
             </View>
 
@@ -127,7 +127,9 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         height: '100%',
-        maxWidth: Platform.OS==='web'?400:0,
+        maxWidth: Platform.OS === 'web'
+            ? 400
+            : '100%',
         position: 'absolute',
         justifyContent: 'center',
         alignItems: 'center',

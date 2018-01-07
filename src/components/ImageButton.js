@@ -69,5 +69,5 @@ ImageButton.propTypes = {
     title: PropTypes.string,
     fontSize: PropTypes.number,
     colors: PropTypes.array,
-    image: PropTypes.object
+    image: PropTypes.any
 };

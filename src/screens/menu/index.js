@@ -14,7 +14,7 @@ import ImageButton from './../../components/ImageButton'
 import InviteView from './../../components/InviteView'
 import Images from './../../constants/Images'
 import LinearGradient from 'react-native-linear-gradient';
-
+import Toolbar from './../../components/toolbar/index'
 class index extends React.Component {
 
     constructor(props) {
@@ -51,6 +51,7 @@ class index extends React.Component {
                     height: '100%'
                 }}
                     colors={['#70B5FF', '#558ED2', '#487EC7']}>
+                    <Toolbar title={"Menu Screen"}/>
                     <View
                         style={{
                         width: '100%',
@@ -61,7 +62,7 @@ class index extends React.Component {
                             resizeMode={Image.resizeMode.contain}
                             style={{
                             height: 30,
-                            width: 20,
+                            width: 20
                         }}
                             source={Images.close}/>
 
@@ -70,7 +71,7 @@ class index extends React.Component {
                         resizeMode={Image.resizeMode.contain}
                         style={{
                         position: 'absolute',
-                        alignSelf:'center',
+                        alignSelf: 'center',
                         bottom: 0,
                         height: 200,
                         width: 300
@@ -89,7 +90,7 @@ const styles = StyleSheet.create({
         height: '100%',
         maxWidth: Platform.OS === 'web'
             ? 400
-            : 0,
+            : '100%',
         position: 'absolute',
         justifyContent: 'center',
         alignItems: 'flex-start',
