@@ -10,6 +10,8 @@ const Images = {
     back: require('./../assets/images/back.png'),
     close: require('./../assets/images/close.png'),
     cloud: require('./../assets/images/cloud.png'),
+    test1: require('./../assets/images/test1.png'),
+    test2: require('./../assets/images/test2.png'),
 };
 
 export default Images;

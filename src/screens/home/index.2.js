@@ -7,21 +7,23 @@ import {
     Image,
     ScrollView,
     Animated,
-    Platform
+    Platform,
+    TouchableOpacity
 } from 'react-native';
 import ElevatedView from './../../components/ElevatedView'
 import ImageButton from './../../components/ImageButton'
 import InviteView from './../../components/InviteView'
 import Images from './../../constants/Images'
 import LinearGradient from 'react-native-linear-gradient';
-import Toolbar from './../../components/toolbar/index'
+import MenuView from './../menu/index'
 class index extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             fadeAnim: new Animated.Value(0),
-            isExpand: false
+            isExpand: false,
+            isMenu: false
         }
     }
 
@@ -33,8 +35,7 @@ class index extends React.Component {
         Animated
             .timing(this.state.fadeAnim, {
             toValue: expandTo,
-            duration: 800,
-            useNativeDriver: true
+            duration: 800
         })
             .start(() => {
                 this.setState((state) => ({
@@ -42,31 +43,34 @@ class index extends React.Component {
                 }));
             });
     }
+    showMenu = () => {
+        this.setState({
+            isMenu: !this.state.isMenu
+        })
+    }
     render() {
         return (
             <View style={styles.container}>
-                <LinearGradient
+                <View
                     style={{
                     width: '100%',
-                    height: '100%'
-                }}
-                    colors={['#70B5FF', '#558ED2', '#487EC7']}>
-                    <Toolbar title={"Menu Screen"}/>
-                    <View
+                    padding: 7,
+                    alignItems: 'flex-start'
+                }}>
+                    <TouchableOpacity onPress={() => this.showMenu()}><Image
+                        resizeMode={Image.resizeMode.contain}
                         style={{
-                        width: '100%',
-                        padding: 7,
-                        alignItems: 'flex-start'
-                    }}>
-                        <Image
-                            resizeMode={Image.resizeMode.contain}
-                            style={{
-                            height: 30,
-                            width: 20
-                        }}
-                            source={Images.close}/>
-
-                    </View>
+                height: 35,
+                width: 35
+            }}
+                        source={Images.menu}/></TouchableOpacity>
+                </View>
+                <ScrollView
+                    contentContainerStyle={{
+                    width: '100%',
+                    height: '100%',
+                    overflow: 'hidden'
+                }}>
                     <ImageButton
                         onPress={() => this.props.history.push('login')}
                         title={"Learning"}
@@ -76,7 +80,7 @@ class index extends React.Component {
                         width: 280,
                         height: 100
                     }}
-                        image={Images.test1}
+                        image={Images.learning}
                         fontSize={38}/>
                     <ImageButton
                         style={{
@@ -87,19 +91,32 @@ class index extends React.Component {
                         onPress={() => this.onPress2()}
                         title={"Sport"}
                         colors={['#E09898', '#DB4646', '#C90000']}
-                        image={Images.test2}
+                        image={Images.sport}
                         fontSize={38}/>
-                    <Image
-                        resizeMode={Image.resizeMode.contain}
+
+                    <Animated.View
                         style={{
-                        position: 'absolute',
-                        alignSelf: 'center',
-                        bottom: 0,
-                        height: 200,
-                        width: 300
-                    }}
-                        source={Images.cloud}/>
-                </LinearGradient>
+                        width: 280,
+                        height: this.state.fadeAnim,
+                        zIndex: 10,
+                        flexDirection: Platform.OS === 'web'
+                            ? 'col'
+                            : 'column'
+                    }}>
+                        <InviteView
+                            style={{
+                            margin: 10
+                        }}
+                            isExpand={this.state.isExpand}
+                            onPress={() => this.onPress2()}
+                            title={"Sport"}
+                            colors={['#E5E5E5', '#EFEFEF', '#EAEAEA']}
+                            fontSize={38}/>
+                    </Animated.View>
+                </ScrollView>
+                {this.state.isMenu
+                    ? <MenuView/>
+                    : null}
             </View>
 
         );
@@ -115,9 +132,9 @@ const styles = StyleSheet.create({
             : '100%',
         position: 'absolute',
         justifyContent: 'center',
-        alignItems: 'flex-start',
-        flexDirection: 'row',
-        backgroundColor: 'rgb(0,0,200)'
+        alignItems: 'center',
+        flexDirection: 'column',
+        backgroundColor: '#FFF'
     },
 
     stayElevated: {
