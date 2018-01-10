@@ -85,7 +85,7 @@ class index extends React.Component {
                     <ImageButton
                         style={{
                         margin: 10,
-                        width: 280,
+                .        width: 280,
                         height: 100
                     }}
                         onPress={() => this.onPress2()}
